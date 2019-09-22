@@ -6,6 +6,7 @@ import { Form, Item, Input, Button, Text } from "native-base";
 
 // Store
 import authStore from "../../stores/authStore";
+import { NavigationEvents } from "react-navigation";
 
 class Login extends Component {
   state = {
@@ -34,7 +35,7 @@ class Login extends Component {
         <Button
           full
           onPress={() => {
-            authStore.Login;
+            navigation.navigate("BanakList"); // added but dont know how to add navigation to this file.
           }}
         >
           <Text>Login</Text>
