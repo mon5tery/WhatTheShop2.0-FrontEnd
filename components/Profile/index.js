@@ -3,14 +3,14 @@ import authStore from "../../stores/authStore";
 // NativeBase Components
 import { Card, CardItem, Text, Button } from "native-base";
 
-const Profile = () => {
+const Profile = ({ navigation }) => {
   return (
     <Card>
       <CardItem>
         <Button
           danger
           onPress={() => {
-            authStore.login;
+            navigation.navigate("Login");
           }}
         >
           <Text>Login</Text>
@@ -21,7 +21,7 @@ const Profile = () => {
         <Button
           danger
           onPress={() => {
-            authStore.logout;
+            navigation.navigate("Logout");
           }}
         >
           <Text>Logout</Text>

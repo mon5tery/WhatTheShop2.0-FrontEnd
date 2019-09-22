@@ -6,6 +6,7 @@ import { Form, Item, Input, Button, Text } from "native-base";
 
 // Store
 import authStore from "../../stores/authStore";
+import { withNavigation } from "react-navigation";
 
 class Login extends Component {
   state = {
@@ -33,9 +34,7 @@ class Login extends Component {
         </Item>
         <Button
           full
-          onPress={() => {
-            authStore.Login;
-          }}
+          onPress={() => authStore.login(this.state, this.props.navigation)}
         >
           <Text>Login</Text>
         </Button>
@@ -43,4 +42,4 @@ class Login extends Component {
     );
   }
 }
-export default observer(Login);
+export default withNavigation(observer(Login));
