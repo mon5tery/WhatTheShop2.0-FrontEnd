@@ -15,6 +15,13 @@ export default class App extends Component {
     this.setState({ loading: false });
   }
 
+
+import BanakCard from "./components/BanakList/BanakCard";
+import BanakList from "./components/BanakList";
+import banakStore from "./stores/BanakStore";
+
+export default class App extends React.Component {
+
   render() {
     if (this.state.loading) {
       return <Spinner color="white" />;
