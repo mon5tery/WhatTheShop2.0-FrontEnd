@@ -2,6 +2,7 @@ import { decorate, observable } from "mobx";
 import axios from "axios";
 import { AsyncStorage } from "react-native";
 import jwt_decode from "jwt-decode";
+import { NavigationEvents } from "react-navigation";
 
 const instance = axios.create({
   baseURL: "http://127.0.0.1:8000/"
@@ -25,11 +26,12 @@ class AuthStore {
     }
   };
 
-  login = async userData => {
+  login = async (userData, navigation) => {
     try {
-      const res = await instance.post("/api/login/", userData);
+      const res = await instance.post("/login/", userData);
       const user = res.data;
       this.setUser(user.access);
+      navigation.replace("BanakList");
     } catch (err) {
       console.log("something went wrong logging in");
     }
