@@ -3,11 +3,15 @@ import authStore from "../../stores/authStore";
 // NativeBase Components
 import { Card, CardItem, Text, Button } from "native-base";
 
+// Styles
+import { StyleSheet } from "react-native";
+
 const Profile = ({ navigation }) => {
   return (
     <Card>
       <CardItem>
         <Button
+          style={styles.Login}
           danger
           onPress={() => {
             navigation.navigate("Login");
@@ -19,15 +23,30 @@ const Profile = ({ navigation }) => {
 
       <CardItem>
         <Button
+          style={styles.Signup}
           danger
           onPress={() => {
-            navigation.navigate("Logout");
+            navigation.navigate("Register");
           }}
         >
-          <Text>Logout</Text>
+          <Text>Sign Up</Text>
         </Button>
       </CardItem>
     </Card>
   );
 };
 export default Profile;
+
+const styles = StyleSheet.create({
+  Login: {
+    top: 10,
+    right: 10,
+    width: 95
+  },
+  Signup: {
+    position: "absolute",
+    right: 10,
+    top: -47,
+    width: 95
+  }
+});

@@ -4,13 +4,14 @@ import { createStackNavigator } from "react-navigation-stack";
 import ProfileScreen from "../components/Profile";
 import LoginScreen from "../components/Login";
 import BanakList from "../components/BanakList";
-// import BanakCard from "../components/BanakList/BanakCard";
+import Register from "../components/Register";
 
 const ProfileStack = createStackNavigator(
   {
     Profile: ProfileScreen,
     Login: LoginScreen,
-    Banak: BanakList
+    Banak: BanakList,
+    Register: Register
   },
   {
     initialRouteName: "Profile",
