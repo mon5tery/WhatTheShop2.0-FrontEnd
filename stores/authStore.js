@@ -41,6 +41,17 @@ class AuthStore {
     this.setUser();
   };
 
+  signup = async (userData, navigation) => {
+    try {
+      const res = await instance.post("/register/", userData);
+      const user = res.data;
+      this.setUser(user.access);
+      navigation.replace("Banak");
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
   checkForToken = async () => {
     const token = await AsyncStorage.getItem("myToken");
 
