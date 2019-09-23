@@ -5,7 +5,7 @@ import jwt_decode from "jwt-decode";
 import { NavigationEvents } from "react-navigation";
 
 const instance = axios.create({
-  baseURL: "http://127.0.0.1:8000/"
+  baseURL: "http://192.168.100.254:80/"
 });
 
 class AuthStore {
@@ -31,7 +31,7 @@ class AuthStore {
       const res = await instance.post("/login/", userData);
       const user = res.data;
       this.setUser(user.access);
-      navigation.replace("BanakList");
+      navigation.replace("Banak");
     } catch (err) {
       console.log("something went wrong logging in");
     }
