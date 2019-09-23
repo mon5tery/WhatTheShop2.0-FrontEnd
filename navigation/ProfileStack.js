@@ -4,6 +4,7 @@ import { createStackNavigator } from "react-navigation-stack";
 import ProfileScreen from "../components/Profile";
 import LoginScreen from "../components/Login";
 import BanakList from "../components/BanakList";
+// import BanakCard from "../components/BanakList/BanakCard";
 
 const ProfileStack = createStackNavigator(
   {
