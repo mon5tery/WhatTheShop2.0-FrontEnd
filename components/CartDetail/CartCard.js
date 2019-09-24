@@ -4,6 +4,7 @@ import { ImageBackground, View } from "react-native";
 // NativeBase Components
 import {
   ListItem,
+  Button,
   Card,
   CardItem,
   Thumbnail,
@@ -13,6 +14,9 @@ import {
 } from "native-base";
 
 // Style
+
+// Stores
+import cartStore from "../../stores/CartStore";
 
 // Navigation
 import { withNavigation } from "react-navigation";
@@ -32,9 +36,12 @@ class CartCard extends Component {
 
             <Text note>{item.price}</Text>
             <Text>{item.quantity}</Text>
-            <TouchableHighlight>
+            <Button
+              transparent
+              onPress={() => cartStore.removeItemFromCart(item)}
+            >
               <Icon name="delete" type="AntDesign" />
-            </TouchableHighlight>
+            </Button>
           </Left>
         </CardItem>
       </Card>
