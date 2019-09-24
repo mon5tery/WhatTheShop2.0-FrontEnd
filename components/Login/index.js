@@ -16,7 +16,7 @@ class Login extends Component {
 
   render() {
     if (authStore.user) {
-      return this.props.navigation.navigate("Banak");
+      return this.props.navigation.replace("Profile");
     }
     return (
       <Form>
