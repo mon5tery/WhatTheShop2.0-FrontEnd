@@ -38,7 +38,7 @@ const Profile = ({ navigation }) => {
           </Button>
         </CardItem>
 
-        <CardItem>
+        {/* <CardItem>
           <Button
             style={styles.Signup}
             danger
@@ -48,7 +48,7 @@ const Profile = ({ navigation }) => {
           >
             <Text>Sign Up</Text>
           </Button>
-        </CardItem>
+        </CardItem> */}
       </Card>
     );
   };
