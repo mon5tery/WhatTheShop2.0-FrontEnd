@@ -8,7 +8,7 @@ class Profile extends Component {
   render() {
     console.log(authStore.user);
     if (!authStore.user) return this.props.navigation.replace("Login");
-    if (authStore.user) return this.props.navigation.replace("Banak");
+    if (authStore.user) return this.props.navigation.replace("Profile");
   }
 }
 
