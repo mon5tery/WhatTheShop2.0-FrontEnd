@@ -1,12 +1,7 @@
 import { decorate, observable } from "mobx";
-import axios from "axios";
 import { AsyncStorage } from "react-native";
 import jwt_decode from "jwt-decode";
-import { NavigationEvents } from "react-navigation";
-
-const instance = axios.create({
-  baseURL: "http://192.168.100.254:80/"
-});
+import { instance } from "./instance";
 
 class AuthStore {
   user = null;
@@ -16,12 +11,12 @@ class AuthStore {
       // Save token to localStorage
       await AsyncStorage.setItem("myToken", token);
       // Set token to Auth header
-      axios.defaults.headers.common.Authorization = `Bearer ${token}`;
+      instance.defaults.headers.common.Authorization = `Bearer ${token}`;
       // Set current user
       this.user = jwt_decode(token);
     } else {
       await AsyncStorage.removeItem("myToken");
-      delete axios.defaults.headers.common.Authorization;
+      delete instance.defaults.headers.common.Authorization;
       this.user = null;
     }
   };
@@ -34,6 +29,7 @@ class AuthStore {
       navigation.replace("Banak");
     } catch (err) {
       console.log("something went wrong logging in");
+      // alert( message?: "Did you register, N00b?")
     }
   };
 
