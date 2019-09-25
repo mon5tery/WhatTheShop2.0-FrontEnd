@@ -1,13 +1,17 @@
 import React from "react";
 import { createDrawerNavigator } from "react-navigation-drawer";
 
-import LolStack from "./BanakStack";
-import Login from "../components/Login";
+import BanakStack from "./BanakStack";
+import Loginscreen from "../components/Login";
+import Register from "../components/Register";
+import Profile from "../components/Profile";
 
 const DrawerNav = createDrawerNavigator(
   {
-    Home: LolStack,
-    Login: Login
+    Home: BanakStack,
+    Login: Loginscreen,
+    Register: Register,
+    Profile: Profile
   },
   {
     headerMode: "float"

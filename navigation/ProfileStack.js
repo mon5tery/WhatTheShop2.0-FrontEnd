@@ -10,7 +10,7 @@ const ProfileStack = createStackNavigator(
   {
     Profile: Profile,
     Login: LoginScreen,
-    Banak: BanakList,
+    BanakList: BanakList,
     Register: Register
   },
   {

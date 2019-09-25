@@ -14,13 +14,13 @@ class Profile extends Component {
     if (authStore.user) profileStore.fetchProfile();
   };
   render() {
-    console.log(authStore.user);
-    if (!authStore.user) return this.props.navigation.replace("Login");
+    // console.log(authStore.user);
+    // if (!authStore.user) return this.props.navigation.replace("Login");
     return (
       <Card>
         <CardItem>
           <Text>
-            Welcome {profileStore.profile.username}!{"\n"}
+            Welcome to our Duwar {profileStore.profile.username}!{"\n"}
           </Text>
         </CardItem>
         <CardItem>

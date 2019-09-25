@@ -26,7 +26,7 @@ class AuthStore {
       const res = await instance.post("/login/", userData);
       const user = res.data;
       this.setUser(user.access);
-      navigation.replace("Banak");
+      navigation.replace("BanakList");
     } catch (err) {
       console.log("something went wrong logging in");
       // alert( message?: "Did you register, N00b?")
@@ -42,7 +42,7 @@ class AuthStore {
       const res = await instance.post("/register/", userData);
       const user = res.data;
       this.setUser(user.access);
-      navigation.replace("Banak");
+      navigation.replace("BanakList");
     } catch (err) {
       console.error(err);
     }

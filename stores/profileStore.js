@@ -2,7 +2,7 @@ import { decorate, observable } from "mobx";
 import { instance } from "./instance";
 
 class ProfileStore {
-  profile = null;
+  profile = "";
   loading = true;
 
   fetchProfile = async () => {

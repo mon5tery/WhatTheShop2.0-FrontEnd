@@ -15,9 +15,9 @@ class Login extends Component {
   };
 
   render() {
-    if (authStore.user) {
-      return this.props.navigation.replace("Profile");
-    }
+    // if (authStore.user) {
+    //   return this.props.navigation.replace("Profile");
+    // }
     return (
       <Form>
         <Item>
@@ -42,9 +42,9 @@ class Login extends Component {
           <Text>Login</Text>
         </Button>
 
-        <Button full onPress={() => this.props.navigation.replace("Register")}>
+        {/* <Button full onPress={() => this.props.navigation.replace("Register")}>
           <Text>Register</Text>
-        </Button>
+        </Button> */}
       </Form>
     );
   }
