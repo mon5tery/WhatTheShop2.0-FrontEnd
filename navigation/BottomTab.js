@@ -3,7 +3,7 @@ import { Icon } from "native-base";
 import { createBottomTabNavigator } from "react-navigation-tabs";
 
 // Navigators
-import LolStack from "./LolStack";
+import LolStack from "./BanakStack";
 import ProfileStack from "./ProfileStack";
 import Login from "../components/Login";
 

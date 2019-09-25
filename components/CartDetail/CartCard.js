@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { ImageBackground, View } from "react-native";
+import { ImageBackground, View, StyleSheet } from "react-native";
 
 // NativeBase Components
 import {
@@ -34,9 +34,10 @@ class CartCard extends Component {
             </TouchableHighlight>
             <Text>{item.name}</Text>
 
-            <Text note>{item.price}</Text>
+            <Text note>{item.price * item.quantity} KWD</Text>
             <Text>{item.quantity}</Text>
             <Button
+              style={styles.delete}
               transparent
               onPress={() => cartStore.removeItemFromCart(item)}
             >
@@ -50,3 +51,10 @@ class CartCard extends Component {
 }
 
 export default withNavigation(CartCard);
+
+const styles = StyleSheet.create({
+  delete: {
+    position: "absolute",
+    right: 5
+  }
+});
