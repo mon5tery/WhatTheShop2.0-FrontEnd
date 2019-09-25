@@ -40,6 +40,7 @@ export default class BanakModal extends Component {
             >
               <Text style={styles.Text2}>Cancel</Text>
             </Button>
+            {/* <Text>Total={cartStore.totalCart}</Text> */}
           </View>
         </Modal>
       </View>

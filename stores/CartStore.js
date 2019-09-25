@@ -63,10 +63,15 @@ class CartStore {
   removeItemFromCart(item) {
     this.items = this.items.filter(cartItem => cartItem !== item);
   }
+  // get totalCart() {
+  //   let total = 0;
+  //   this.items.forEach(item => (total += item.price * this.item.quantity));
+  // }
 }
 
 decorate(CartStore, {
   items: observable
+  // totalCart: computed
 });
 
 const cartStore = new CartStore();
