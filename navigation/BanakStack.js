@@ -1,15 +1,16 @@
 import { createStackNavigator } from "react-navigation-stack";
 
 // Components
-import LolScreen from "../components/Lol";
+// import LolScreen from "../components/Lol";
 import BanakList from "../components/BanakList";
 import BanakDetail from "../components/BanakDetail";
+import Register from "../components/Register";
 
-const LolStack = createStackNavigator(
+const BanakStack = createStackNavigator(
   {
-    Lol: LolScreen,
     BanakList: BanakList,
-    BanakDetail: BanakDetail
+    BanakDetail: BanakDetail,
+    Register: Register
   },
   {
     // defaultNavigationOptions: {
@@ -18,4 +19,4 @@ const LolStack = createStackNavigator(
   }
 );
 
-export default LolStack;
+export default BanakStack;

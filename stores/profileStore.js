@@ -1,12 +1,8 @@
 import { decorate, observable } from "mobx";
 import { instance } from "./instance";
 
-const instance = axios.create({
-  baseURL: "http://192.168.100.254:80/"
-});
-
 class ProfileStore {
-  profile = null;
+  profile = "";
   loading = true;
 
   fetchProfile = async () => {

@@ -1,72 +1,39 @@
-import React from "react";
-import authStore from "../../stores/authStore";
+// if (!this.props.user) return <Redirect to="/login" />;
+
+// import { Redirect } from "react-router-dom";
+
+import React, { Component } from "react";
 import { observer } from "mobx-react";
 // NativeBase Components
-import { Card, CardItem, Text, Button } from "native-base";
+import { Card, CardItem, Text, Button, Header, Spinner } from "native-base";
+import authStore from "../../stores/authStore";
+import profileStore from "../../stores/profileStore";
 
-// Styles
-import { StyleSheet } from "react-native";
-
-const Profile = ({ navigation }) => {
-  const getView = () => {
-    if (authStore.user) {
-      return (
-        <Card>
-          <CardItem>
-            <Button
-              style={styles.Login}
-              danger
-              onPress={() => authStore.logout()}
-            >
-              <Text>Logout</Text>
-            </Button>
-          </CardItem>
-        </Card>
-      );
-    }
+class Profile extends Component {
+  componentDidMount = () => {
+    if (authStore.user) profileStore.fetchProfile();
+  };
+  render() {
+    // console.log(authStore.user);
+    // if (!authStore.user) return this.props.navigation.replace("Login");
     return (
       <Card>
         <CardItem>
+          <Text>
+            Welcome to our Duwar {profileStore.profile.username}!{"\n"}
+          </Text>
+        </CardItem>
+        <CardItem>
           <Button
-            style={styles.Login}
             danger
-            onPress={() => {
-              navigation.navigate("Login");
-            }}
+            onPress={() => authStore.logout(this.props.navigation)}
           >
-            <Text>Login</Text>
+            <Text>Logout</Text>
           </Button>
         </CardItem>
-
-        {/* <CardItem>
-          <Button
-            style={styles.Signup}
-            danger
-            onPress={() => {
-              navigation.navigate("Register");
-            }}
-          >
-            <Text>Sign Up</Text>
-          </Button>
-        </CardItem> */}
       </Card>
     );
-  };
-
-  return getView();
-};
-export default observer(Profile);
-
-const styles = StyleSheet.create({
-  Login: {
-    top: 10,
-    right: 10,
-    width: 95
-  },
-  Signup: {
-    position: "absolute",
-    right: 10,
-    top: -47,
-    width: 95
   }
-});
+}
+
+export default observer(Profile);
