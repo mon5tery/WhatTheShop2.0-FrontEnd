@@ -6,17 +6,18 @@ import { createBottomTabNavigator } from "react-navigation-tabs";
 import LolStack from "./BanakStack";
 import ProfileStack from "./ProfileStack";
 import Login from "../components/Login";
+import ProfilePage from "../components/Profile";
 
 const BottomTab = createBottomTabNavigator(
   {
     ProfileTab: LolStack,
-    LolTab: ProfileStack
+    LolTab: ProfilePage
   },
   {
     defaultNavigationOptions: ({ navigation }) => ({
       tabBarIcon: ({ tintColor }) => {
         const { routeName } = navigation.state;
-        let iconName;
+        let iconName, iconType;
         if (routeName === "LolTab") {
           iconName = "smiley";
           iconType = "Octicons";
