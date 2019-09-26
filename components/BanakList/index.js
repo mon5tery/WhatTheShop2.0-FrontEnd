@@ -2,8 +2,18 @@ import React, { Component } from "react";
 import { observer } from "mobx-react";
 
 // NativeBase Components
-import { List, Content, Spinner, View, Button, Image } from "native-base";
-import { ImageBackground, StyleSheet } from "react-native";
+import {
+  List,
+  Content,
+  Spinner,
+  View,
+  Button,
+  Image,
+  Left,
+  TouchableHighlight,
+  Text
+} from "native-base";
+import { ImageBackground, StyleSheet, Icon } from "react-native";
 
 // Store
 import banakStore from "../../stores/BanakStore";
@@ -12,13 +22,20 @@ import banakStore from "../../stores/BanakStore";
 import BanakCard from "./BanakCard";
 import BanakModal from "../BanakModal";
 import banakat from "../../assets/banakat.jpg";
+import { Header } from "react-navigation-stack";
+import customNavigator from "../../navigation/customNavigator";
 
 // import  from "";
 
 class BanakList extends Component {
   static navigationOptions = ({ navigation }) => ({
     title: "BanakaT",
-    headerLeft: null,
+    headerLeft: (
+      <Button transparent onPress={() => navigation.openDrawer()}>
+        <Text>...</Text>
+      </Button>
+    ),
+
     headerRight: <BanakModal />
   });
   render() {
@@ -36,6 +53,13 @@ class BanakList extends Component {
           <List style={{ flexDirection: "row", flexWrap: "wrap" }}>
             {Banak}
           </List>
+
+          <Button
+            transparent
+            onPress={() => this.props.navigation.openDrawer()}
+          >
+            <Text>test</Text>
+          </Button>
         </ImageBackground>
       </Content>
     );

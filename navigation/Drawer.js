@@ -1,10 +1,14 @@
 import React from "react";
-import { createDrawerNavigator } from "react-navigation-drawer";
+import { createDrawerNavigator, DrawerItems } from "react-navigation-drawer";
+import { Text, Image } from "react-native";
+import { Container, Content, Header, Left, Body, Icon } from "native-base";
+import Ionicons from "react-native-vector-icons/Ionicons";
 
-import BanakStack from "./BanakStack";
-import Loginscreen from "../components/Login";
-import Register from "../components/Register";
-import Profile from "../components/Profile";
+ 
+import LolStack from "./BanakStack";
+import Login from "../components/Login";
+import customNavigator from "./customNavigator";
+
 
 const DrawerNav = createDrawerNavigator(
   {
@@ -14,7 +18,13 @@ const DrawerNav = createDrawerNavigator(
     Profile: Profile
   },
   {
-    headerMode: "float"
+    headerMode: "float",
+    // drawerBackgroundColor: "transparent"
+    contentComponent: customNavigator,
+    initialRoutteName: "Home",
+    drawerOpenRoute: "DrawerOpen",
+    drawerCloseRoute: "DrawerClose",
+    drawerToggleRoute: "DrawerToggle"
   }
 );
 

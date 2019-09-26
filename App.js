@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import AppContainer from "./navigation";
-import { Spinner } from "native-base";
+import { Spinner, Root } from "native-base";
 
 export default class App extends Component {
   state = {
@@ -19,6 +19,10 @@ export default class App extends Component {
     if (this.state.loading) {
       return <Spinner color="white" />;
     }
-    return <AppContainer />;
+    return (
+      <Root>
+        <AppContainer />
+      </Root>
+    );
   }
 }

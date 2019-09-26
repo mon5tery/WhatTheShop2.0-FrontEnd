@@ -21,7 +21,7 @@ export default class BanakModal extends Component {
         <Button transparent onPress={this.toggleModal}>
           <Icon name="shoppingcart" type="AntDesign" />
         </Button>
-        <Modal isVisible={this.state.isModalVisible}>
+        <Modal isVisible={this.state.isModalVisible} animationType="fade">
           <View style={{ flex: 1 }}>
             <CartDetail />
             <Button
