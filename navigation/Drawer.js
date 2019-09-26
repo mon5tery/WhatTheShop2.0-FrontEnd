@@ -4,14 +4,18 @@ import { Text, Image } from "react-native";
 import { Container, Content, Header, Left, Body, Icon } from "native-base";
 import Ionicons from "react-native-vector-icons/Ionicons";
 
+ 
 import LolStack from "./BanakStack";
 import Login from "../components/Login";
 import customNavigator from "./customNavigator";
 
+
 const DrawerNav = createDrawerNavigator(
   {
-    Home: LolStack,
-    Login: Login
+    Home: BanakStack,
+    Login: Loginscreen,
+    Register: Register,
+    Profile: Profile
   },
   {
     headerMode: "float",

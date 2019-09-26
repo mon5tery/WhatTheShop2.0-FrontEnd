@@ -1,9 +1,10 @@
 import { decorate, observable, computed } from "mobx";
-import axios from "axios";
 
-const instance = axios.create({
-  baseURL: "http://127.0.0.1:8000/"
-});
+
+// const instance = axios.create({
+//   baseURL: "http://127.0.0.1:8000/"
+// });
+import { instance } from "./instance";
 
 class CartStore {
   items = [];
@@ -11,7 +12,7 @@ class CartStore {
 
   fetchCart = async () => {
     try {
-      const res = await axios.get("http://127.0.0.1:8000/cart/");
+      const res = await instance.get("http://127.0.0.1:8000/cart/");
       const items = res.data;
       // console.log("cartat", items);
       this.items = items;
@@ -23,7 +24,7 @@ class CartStore {
 
   createItem = async item => {
     try {
-      const res = await axios.post("http://127.0.0.1:8000/cart/", item);
+      const res = await instance.post("http://127.0.0.1:8000/cart/", item);
       const data = res.data;
       console.log("lastcart", data);
     } catch (err) {
@@ -33,7 +34,7 @@ class CartStore {
 
   updateQuantity = async item => {
     try {
-      const res = await axios.put("http://127.0.0.1:8000/cart/", item);
+      const res = await instance.put("http://127.0.0.1:8000/cart/", item);
       const data = res.data;
       console.log("lastcart", data);
     } catch (err) {
