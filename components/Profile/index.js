@@ -1,7 +1,7 @@
 // if (!this.props.user) return <Redirect to="/login" />;
 
 // import { Redirect } from "react-router-dom";
-
+import Login from "../Login";
 import React, { Component } from "react";
 import { observer } from "mobx-react";
 // NativeBase Components
@@ -13,9 +13,12 @@ class Profile extends Component {
   componentDidMount = () => {
     if (authStore.user) profileStore.fetchProfile();
   };
+  handlePress() {
+    this.props.navigation.navigate("Orders");
+  }
   render() {
-    // console.log(authStore.user);
-    // if (!authStore.user) return this.props.navigation.replace("Login");
+    console.log(authStore.user);
+    if (!authStore.user) return <Login />;
     return (
       <Card>
         <CardItem>
