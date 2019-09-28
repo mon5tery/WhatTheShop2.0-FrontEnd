@@ -5,13 +5,15 @@ import Profile from "../components/Profile";
 import Login from "../components/Login";
 import BanakList from "../components/BanakList";
 import Register from "../components/Register";
+import OrderHistory from "../components/OrderHistory";
 
 const ProfileStack = createStackNavigator(
   {
     Profile: Profile,
     Login: Login,
     BanakList: BanakList,
-    Register: Register
+    Register: Register,
+    Orders: OrderHistory
   },
   {
     initialRouteName: "Profile",
