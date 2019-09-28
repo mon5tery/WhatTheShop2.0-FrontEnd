@@ -18,8 +18,6 @@ class Profile extends Component {
     }
   };
 
-
-
   handlePress() {
     this.props.navigation.navigate("Orders");
   }
@@ -31,7 +29,7 @@ class Profile extends Component {
       <Card>
         <CardItem>
           <Text>
-            Welcome to our Duwar {profileStore.profile.username}!{"\n"}
+            Welcome to Beldowar {profileStore.profile.username}!{"\n"}
           </Text>
         </CardItem>
         <CardItem>

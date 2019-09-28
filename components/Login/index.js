@@ -60,9 +60,6 @@ class Login extends Component {
       //     <Text>Login</Text>
       //   </Button>
 
-      //   {/* <Button full onPress={() => this.props.navigation.replace("Register")}>
-      //     <Text>Register</Text>
-      //   </Button> */}
       // </Form>
 
       <Container style={{ justifyContent: "center" }}>
@@ -107,6 +104,12 @@ class Login extends Component {
             onPress={() => authStore.login(this.state, this.props.navigation)}
           >
             <Text style={{ fontSize: 20 }}>Login</Text>
+          </Button>
+          <Button
+            full
+            onPress={() => this.props.navigation.replace("Register")}
+          >
+            <Text>Register</Text>
           </Button>
         </Card>
       </Container>
