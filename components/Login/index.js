@@ -11,7 +11,13 @@ import {
   Image,
   Left,
   TouchableHighlight,
-  Text
+  Text,
+  Form,
+  Item,
+  Input,
+  Container,
+  Card,
+  Icon
 } from "native-base";
 
 // Store
@@ -24,15 +30,6 @@ class Login extends Component {
     username: "",
     password: ""
   };
-  static navigationOptions = ({ navigation }) => ({
-    title: "Login",
-    headerLeft: (
-      <Button transparent onPress={() => navigation.openDrawer()}>
-        <Text>...</Text>
-      </Button>
-    ),
-    headerRight: <BanakModal />
-  });
 
   render() {
     if (authStore.loading) return <Spinner />;
@@ -40,33 +37,79 @@ class Login extends Component {
     //   return this.props.navigation.replace("Profile");
     // }
     return (
-      <Form>
-        <Item>
-          <Input
-            placeholder="Username"
-            autoCapitalize="none"
-            onChangeText={username => this.setState({ username })}
-          />
-        </Item>
-        <Item last>
-          <Input
-            placeholder="Password"
-            autoCapitalize="none"
-            secureTextEntry={true}
-            onChangeText={password => this.setState({ password })}
-          />
-        </Item>
-        <Button
-          full
-          onPress={() => authStore.login(this.state, this.props.navigation)}
-        >
-          <Text>Login</Text>
-        </Button>
+      // <Form>
+      //   <Item>
+      //     <Input
+      //       placeholder="Username"
+      //       autoCapitalize="none"
+      //       onChangeText={username => this.setState({ username })}
+      //     />
+      //   </Item>
+      //   <Item last>
+      //     <Input
+      //       placeholder="Password"
+      //       autoCapitalize="none"
+      //       secureTextEntry={true}
+      //       onChangeText={password => this.setState({ password })}
+      //     />
+      //   </Item>
+      //   <Button
+      //     full
+      //     onPress={() => authStore.login(this.state, this.props.navigation)}
+      //   >
+      //     <Text>Login</Text>
+      //   </Button>
 
-        {/* <Button full onPress={() => this.props.navigation.replace("Register")}>
-          <Text>Register</Text>
-        </Button> */}
-      </Form>
+      //   {/* <Button full onPress={() => this.props.navigation.replace("Register")}>
+      //     <Text>Register</Text>
+      //   </Button> */}
+      // </Form>
+
+      <Container style={{ justifyContent: "center" }}>
+        <Card style={{ borderColor: "#BC8F8F" }}>
+          <Text
+            style={{
+              marginTop: 20,
+              alignSelf: "center",
+              fontSize: 30,
+              fontFamily: "AcademyEngravedLetPlain"
+            }}
+          >
+            Login
+          </Text>
+
+          <Item>
+            <Icon active name="ios-person" style={{ color: "#687373" }} />
+            <Input
+              placeholder="Username"
+              autoCapitalize="none"
+              onChangeText={username => this.setState({ username })}
+            />
+          </Item>
+
+          <Item>
+            <Icon active name="ios-lock" style={{ color: "#687373" }} />
+            <Input
+              placeholder="Password"
+              autoCapitalize="none"
+              secureTextEntry={true}
+              onChangeText={password => this.setState({ password })}
+            />
+          </Item>
+
+          <Button
+            full
+            style={{
+              backgroundColor: "#BC8F8F",
+              fontWeight: "bold",
+              marginTop: 10
+            }}
+            onPress={() => authStore.login(this.state, this.props.navigation)}
+          >
+            <Text style={{ fontSize: 20 }}>Login</Text>
+          </Button>
+        </Card>
+      </Container>
     );
   }
 }

@@ -29,7 +29,7 @@ import customNavigator from "../../navigation/customNavigator";
 
 class BanakList extends Component {
   static navigationOptions = ({ navigation }) => ({
-    title: "BanakaT",
+    title: "Home",
     headerLeft: (
       <Button transparent onPress={() => navigation.openDrawer()}>
         <Text>...</Text>
