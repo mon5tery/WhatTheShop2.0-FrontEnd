@@ -2,7 +2,17 @@ import React, { Component } from "react";
 import { observer } from "mobx-react";
 
 // NativeBase Components
-import { Form, Item, Input, Button, Text } from "native-base";
+import {
+  List,
+  Content,
+  Spinner,
+  View,
+  Button,
+  Image,
+  Left,
+  TouchableHighlight,
+  Text
+} from "native-base";
 
 // Store
 import authStore from "../../stores/authStore";
@@ -25,6 +35,7 @@ class Login extends Component {
   });
 
   render() {
+    if (authStore.loading) return <Spinner />;
     // if (authStore.user) {
     //   return this.props.navigation.replace("Profile");
     // }

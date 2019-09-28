@@ -7,15 +7,19 @@ import Ionicons from "react-native-vector-icons/Ionicons";
 import BanakStack from "./BanakStack";
 import Login from "../components/Login";
 import customNavigator from "./customNavigator";
-import Register from "./customNavigator";
+
+import Register from "../components/Register";
 import Profile from "../components/Profile";
+import Orders from "../components/OrderHistory";
+
 
 const DrawerNav = createDrawerNavigator(
   {
     Home: BanakStack,
     Login: Login,
     Register: Register,
-    Profile: Profile
+    Profile: Profile,
+    OrderHistory: Orders
   },
   {
     headerMode: "float",
