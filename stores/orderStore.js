@@ -5,7 +5,7 @@ class OrderHistory {
   order = "";
   loading = true;
 
-  fetchorder = async () => {
+  fetchOrders = async () => {
     try {
       let res = await instance.get("order/");
 

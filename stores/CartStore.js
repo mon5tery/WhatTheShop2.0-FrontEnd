@@ -36,7 +36,7 @@ class CartStore {
 
   updateQuantity = async item => {
     try {
-      const res = await instance.put("/checkout/", item);
+      const res = await instance.put("/addtocart/", item);
       const data = res.data;
       console.log("lastcart", data);
     } catch (err) {
@@ -44,7 +44,26 @@ class CartStore {
     }
   };
 
+  checkingout = async () => {
+    try {
+      const res = await instance.get("/checkout/");
+      const data = res.data;
+    } catch (err) {
+      console.log(err.response);
+    }
+  };
+
+  delete = async item => {
+    try {
+      const res = await instance.delete("/deletecart/", item);
+      const data = res.data;
+    } catch (err) {
+      console.log(err.response);
+    }
+  };
+
   checkOut = async () => {
+    this.checkOut;
     this.items = [];
   };
 
@@ -61,8 +80,9 @@ class CartStore {
         item: item.id,
         quantity: item.quantity
       };
+
+      this.items.push(item);
       this.createItem(newItem);
-      this.items.push(newItem);
 
       alert("Thank You , Item added succesfully");
     }
@@ -72,6 +92,11 @@ class CartStore {
 
   removeItemFromCart(item) {
     this.items = this.items.filter(cartItem => cartItem !== item);
+    const newItem = {
+      item: item.id
+    };
+
+    this.delete(newItem);
   }
   // get totalCart() {
   //   let total = 0;

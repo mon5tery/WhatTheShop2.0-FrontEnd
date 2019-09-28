@@ -107,6 +107,13 @@ class Login extends Component {
           </Button>
           <Button
             full
+
+            style={{
+              backgroundColor: "#BC8F8F",
+              fontWeight: "bold",
+              marginTop: 10
+            }}
+
             onPress={() => this.props.navigation.replace("Register")}
           >
             <Text>Register</Text>
