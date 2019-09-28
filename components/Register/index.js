@@ -72,7 +72,7 @@ class Register extends Component {
               fontFamily: "AcademyEngravedLetPlain"
             }}
           >
-            Fill the following to continue:
+            SIGN UP
           </Text>
           <Item>
             <Icon active name="ios-person-add" style={{ color: "#687373" }} />

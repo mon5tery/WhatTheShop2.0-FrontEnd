@@ -5,12 +5,14 @@ import { createStackNavigator } from "react-navigation-stack";
 import BanakList from "../components/BanakList";
 import BanakDetail from "../components/BanakDetail";
 import Register from "../components/Register";
+import Login from "../components/Login";
 
 const BanakStack = createStackNavigator(
   {
     BanakList: BanakList,
     BanakDetail: BanakDetail,
-    Register: Register
+    Register: Register,
+    Login: Login
   },
   {
     // defaultNavigationOptions: {
