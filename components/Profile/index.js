@@ -13,12 +13,10 @@ class Profile extends Component {
   componentDidMount = () => {
     if (authStore.user) {
       {
-        () => profileStore.fetchProfile();
+        profileStore.fetchProfile();
       }
     }
   };
-
-
 
   handlePress() {
     this.props.navigation.navigate("Orders");
@@ -26,7 +24,9 @@ class Profile extends Component {
 
   render() {
     console.log(authStore.user);
+    console.log(profileStore);
     if (!authStore.user) return <Login />;
+
     return (
       <Card>
         <CardItem>

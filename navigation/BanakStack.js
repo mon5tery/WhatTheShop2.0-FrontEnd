@@ -6,13 +6,16 @@ import BanakList from "../components/BanakList";
 import BanakDetail from "../components/BanakDetail";
 import Register from "../components/Register";
 import Login from "../components/Login";
+import profileStore from "../stores/profileStore";
+import Profile from "../components/Profile";
 
 const BanakStack = createStackNavigator(
   {
     BanakList: BanakList,
     BanakDetail: BanakDetail,
     Register: Register,
-    Login: Login
+    Login: Login,
+    Profile: Profile
   },
   {
     // defaultNavigationOptions: {

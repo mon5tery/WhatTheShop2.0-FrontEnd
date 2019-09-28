@@ -2,6 +2,7 @@ import { decorate, observable } from "mobx";
 import { AsyncStorage } from "react-native";
 import jwt_decode from "jwt-decode";
 import { instance } from "./instance";
+import profileStore from "./profileStore";
 
 class AuthStore {
   user = null;
@@ -26,6 +27,7 @@ class AuthStore {
       const res = await instance.post("/login/", userData);
       const user = res.data;
       this.setUser(user.access);
+
       navigation.replace("BanakList");
     } catch (err) {
       console.log("something went wrong logging in");

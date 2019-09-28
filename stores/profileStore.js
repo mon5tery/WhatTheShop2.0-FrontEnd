@@ -5,17 +5,26 @@ class ProfileStore {
   profile = "";
   loading = true;
 
-  fetchProfile = async user => {
+  fetchProfile = async () => {
     try {
-      let res = await instance.get("profile/");
-
-      this.profile = res.data;
+      const res = await instance.get("/profile/");
+      console.log("dataaa", res.data);
+      const profile = res.data;
+      this.profile = profile;
       this.loading = false;
     } catch (err) {
       console.error(err);
     }
   };
 }
+
+// username = () => {
+//   if (this.profile) {
+//     return this.profile.username;
+//   } else {
+//     return "";
+//   }
+// };
 
 decorate(ProfileStore, {
   profile: observable,
