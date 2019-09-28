@@ -8,14 +8,22 @@ import { observer } from "mobx-react";
 import { Card, CardItem, Text, Button, Header, Spinner } from "native-base";
 import authStore from "../../stores/authStore";
 import profileStore from "../../stores/profileStore";
-
+//
 class Profile extends Component {
   componentDidMount = () => {
-    if (authStore.user) profileStore.fetchProfile();
+    if (authStore.user) {
+      {
+        () => profileStore.fetchProfile();
+      }
+    }
   };
+
+
+
   handlePress() {
     this.props.navigation.navigate("Orders");
   }
+
   render() {
     console.log(authStore.user);
     if (!authStore.user) return <Login />;

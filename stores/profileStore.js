@@ -5,7 +5,7 @@ class ProfileStore {
   profile = "";
   loading = true;
 
-  fetchProfile = async () => {
+  fetchProfile = async user => {
     try {
       let res = await instance.get("profile/");
 

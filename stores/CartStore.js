@@ -1,10 +1,10 @@
 import { decorate, observable, computed } from "mobx";
 
-
 // const instance = axios.create({
 //   baseURL: "http://127.0.0.1:8000/"
 // });
-import { instance } from "./instance";
+import { instance } from "./instance.js";
+import { NativeViewGestureHandler } from "react-native-gesture-handler";
 
 class CartStore {
   items = [];
@@ -12,7 +12,7 @@ class CartStore {
 
   fetchCart = async () => {
     try {
-      const res = await instance.get("http://127.0.0.1:8000/cart/");
+      const res = await instance.get("/viewcart/");
       const items = res.data;
       // console.log("cartat", items);
       this.items = items;
@@ -24,17 +24,19 @@ class CartStore {
 
   createItem = async item => {
     try {
-      const res = await instance.post("http://127.0.0.1:8000/cart/", item);
+      console.log("HERLLLLLLO");
+      const res = await instance.post("/addtocart/", item);
+      console.log(res);
       const data = res.data;
       console.log("lastcart", data);
     } catch (err) {
-      console.log(err.response);
+      console.log("error: " + err.response);
     }
   };
 
   updateQuantity = async item => {
     try {
-      const res = await instance.put("http://127.0.0.1:8000/cart/", item);
+      const res = await instance.put("/checkout/", item);
       const data = res.data;
       console.log("lastcart", data);
     } catch (err) {
@@ -48,13 +50,20 @@ class CartStore {
 
   addItemToCart(item) {
     const foundItem = this.items.find(cartItem => cartItem.name === item.name);
+    console.log("Found this item: " + foundItem);
     if (foundItem) {
       foundItem.quantity += item.quantity; //here we stopped
       this.updateQuantity(foundItem);
       alert("Thank You , Item added succesfully");
     } else {
-      this.items.push(item);
-      this.createItem(item);
+      console.log("Didnt find item: " + item);
+      const newItem = {
+        item: item.id,
+        quantity: item.quantity
+      };
+      this.createItem(newItem);
+      this.items.push(newItem);
+
       alert("Thank You , Item added succesfully");
     }
 

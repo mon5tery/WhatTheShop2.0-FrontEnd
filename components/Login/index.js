@@ -17,12 +17,22 @@ import {
 // Store
 import authStore from "../../stores/authStore";
 import { withNavigation } from "react-navigation";
-
+import BanakModal from "../BanakModal";
+//
 class Login extends Component {
   state = {
     username: "",
     password: ""
   };
+  static navigationOptions = ({ navigation }) => ({
+    title: "Login",
+    headerLeft: (
+      <Button transparent onPress={() => navigation.openDrawer()}>
+        <Text>...</Text>
+      </Button>
+    ),
+    headerRight: <BanakModal />
+  });
 
   render() {
     if (authStore.loading) return <Spinner />;
