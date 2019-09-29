@@ -83,6 +83,9 @@ import React, { Component } from "react";
 import { Text, View, Image, TouchableOpacity } from "react-native";
 
 class Profile extends Component {
+  handlePress() {
+    this.props.navigation.navigate("Orders");
+  }
   componentDidMount = () => {
     if (authStore.user) {
       {

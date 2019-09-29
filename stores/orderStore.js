@@ -7,7 +7,7 @@ class OrderHistory {
 
   fetchOrders = async () => {
     try {
-      let res = await instance.get("order/");
+      let res = await instance.get("orderhistory/");
 
       this.order = res.data;
       this.loading = false;
