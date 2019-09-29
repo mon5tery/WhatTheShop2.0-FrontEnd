@@ -112,7 +112,7 @@ class Register extends Component {
           <Button
             full
             style={{
-              backgroundColor: "#BC8F8F",
+              backgroundColor: "#a88702",
               fontWeight: "bold",
               marginTop: 10
             }}
