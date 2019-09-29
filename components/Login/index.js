@@ -69,7 +69,7 @@ class Login extends Component {
               marginTop: 20,
               alignSelf: "center",
               fontSize: 30,
-              fontFamily: "AcademyEngravedLetPlain"
+              fontFamily: "Lucida Console"
             }}
           >
             Login
@@ -97,7 +97,7 @@ class Login extends Component {
           <Button
             full
             style={{
-              backgroundColor: "#BC8F8F",
+              backgroundColor: "#a88702",
               fontWeight: "bold",
               marginTop: 10
             }}
@@ -107,13 +107,11 @@ class Login extends Component {
           </Button>
           <Button
             full
-
             style={{
-              backgroundColor: "#BC8F8F",
+              backgroundColor: "#a88702",
               fontWeight: "bold",
               marginTop: 10
             }}
-
             onPress={() => this.props.navigation.replace("Register")}
           >
             <Text>Register</Text>

@@ -13,7 +13,6 @@ const customNavigator = props => (
           style={{ width: 250, height: 100 }}
           source={require("../assets/banakat.jpg")}
         />
-        <Text>{profileStore.profile}</Text>
       </Body>
     </Header>
     <Content>
